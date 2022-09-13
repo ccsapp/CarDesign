@@ -1,0 +1,7 @@
+#%RAML 1.0 DataType
+
+description: Data that specifies the amount of fuel that can be carried with the car
+type: string
+pattern: '^((\d+\.\d+L)|(\d+\.\d+kWh)|((\d+\.\d+L);(\d+\.\d+kWh)))$'
+
+example: !include fuelCapacity_example.yaml

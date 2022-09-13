@@ -1,0 +1,11 @@
+#%RAML 1.0 DataType
+
+description: Data about the cars engine as given by the manufacturer
+type: object
+properties:
+  type: string
+  power:
+    type: integer
+    minimum: 0
+
+example: !include engine_example.yaml

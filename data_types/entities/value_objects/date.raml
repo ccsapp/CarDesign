@@ -1,0 +1,9 @@
+#%RAML 1.0 DataType
+
+description: String representation for a date as YYYY-MM-DD (ISO 8601)
+
+type: string
+pattern: '^(\d{4})-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[01])$'
+
+example: !include date_example.yaml
+  

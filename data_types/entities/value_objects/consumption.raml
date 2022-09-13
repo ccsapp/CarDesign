@@ -1,0 +1,16 @@
+#%RAML 1.0 DataType
+
+description: Data about the fuel consumption of a car as given by the manufacturer
+type: object
+properties:
+  city: 
+    type: number
+    minimum: 0
+  overland:
+    type: number
+    minimum: 0
+  combined:
+    type: number
+    minimum: 0
+
+example: !include consumption_example.yaml

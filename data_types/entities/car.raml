@@ -1,0 +1,12 @@
+#%RAML 1.0 DataType
+
+description: Static and dynamic car data
+type: object
+properties: 
+  vin: !include  value_objects/vin.raml
+  brand: string
+  model: string
+  productionDate: !include value_objects/date.raml
+  technicalSpecification: !include  value_objects/technicalSpecification.raml
+  dynamicData: !include  value_objects/dynamicData.raml
+example: !include car_example.yaml  

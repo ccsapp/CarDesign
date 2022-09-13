@@ -1,0 +1,14 @@
+color: 'blue metallic'
+weight: 1320
+trunkVolume: 435
+engine: !include engine_example.yaml
+transmission: !include ../enumerations/transmission_example.yaml
+tire:  !include tire_example.yaml
+numberOfSeats: 5
+numberOfDoors: 3  
+fuel: !include ../enumerations/fuel_example.yaml
+fuelCapacity: !include fuelCapacity_example.yaml
+consumption: !include consumption_example.yaml
+emissions: !include emissions_example.yaml
+  
+ 

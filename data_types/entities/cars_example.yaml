@@ -1,0 +1,70 @@
+- vin: 'WDD1690071J236589'
+  brand: 'BMW'
+  model: 'i8'
+  productionDate: '2005-10-11'
+  technicalSpecification:
+    color: 'green'
+    weight: 1670
+    trunkVolume: 276
+    engine: 
+      type: 'B38K15T0'
+      power: 300
+    transmission: AUTOMATIC
+    tire:
+      manufacturer: 'GOODYEAR'
+      type: '185/65R15'
+    numberOfSeats: 2
+    numberOfDoors: 3  
+    fuel: ELECTRIC
+    fuelCapacity: '21.0kWh' 
+    consumption:
+      city: 3.4
+      overland: 1.6
+      combined: 2.2
+    emissions:
+      city: 130
+      overland: 110
+      combined: 120
+  dynamicData:
+    fuelLevelPercentage: 90
+    position: 
+      latitude: 41.0
+      longitude: 30.0
+    trunkLockState: UNLOCKED
+    doorsLockState: LOCKED
+    engineState: ON
+- vin: 'WDD1690071J236589'
+  brand: 'Mercedes-Benz'
+  model: 'A 180 CDI'
+  productionDate: '2005-10-11'
+  technicalSpecification:
+    color: 'blue metallic'
+    weight: 1320
+    trunkVolume: 435
+    engine: 
+      type: '180 CDI'
+      power: 80
+    transmission: MANUAL
+    tire:
+      manufacturer: 'GOODYEAR'
+      type: '185/65R15'
+    numberOfSeats: 5
+    numberOfDoors: 3  
+    fuel: DIESEL
+    fuelCapacity: '54.0L' 
+    consumption:
+      city: 6.4
+      overland: 4.6
+      combined: 5.2
+    emissions:
+      city: 137
+      overland: 137
+      combined: 137
+  dynamicData:
+    fuelLevelPercentage: 100
+    position: 
+      latitude: 42.0
+      longitude: 100.0
+    trunkLockState: UNLOCKED
+    doorsLockState: LOCKED
+    engineState: ON

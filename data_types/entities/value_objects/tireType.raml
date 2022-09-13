@@ -1,0 +1,8 @@
+#%RAML 1.0 DataType
+
+description: Defines the pattern for tyre size as universally used
+
+type: string
+pattern: '^(\d{3}\/\d{2})([RD]F?)(\d{2})(\d{2,3})?(A[1-8]|[B-H]|[J-N]|[P-W]|Y)?$'
+
+example: !include tireType_example.yaml

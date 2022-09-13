@@ -1,0 +1,8 @@
+#%RAML 1.0 DataType
+
+description: Vehicle Identification Number (VIN) to identify vehicles
+
+type: string
+pattern: '^[A-HJ-NPR-Z0-9]{13}[0-9]{4}$'
+
+example: !include vin_example.yaml

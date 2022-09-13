@@ -1,0 +1,7 @@
+vin: 'WDD1690071J236589'
+brand: 'BMW'
+model: 'i8'
+productionDate: '2005-10-11'
+technicalSpecification: !include value_objects/technicalSpecification_example.yaml
+dynamicData: !include value_objects/dynamicData_example.yaml
+    
