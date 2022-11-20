@@ -1,7 +1,0 @@
-fuelLevelPercentage: 100
-position: 
-  latitude: 42.0
-  longitude: 100.0
-trunkLockState: UNLOCKED
-doorsLockState: LOCKED
-engineState: ON 
