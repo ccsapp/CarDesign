@@ -225,6 +225,7 @@ components:
             - 'OFF'
       description: Data that changes during a car's operation
     lockState:
+      type: string
       enum:
         - LOCKED
         - UNLOCKED
