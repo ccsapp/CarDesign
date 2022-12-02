@@ -11,7 +11,7 @@ paths:
       operationId: getCars
       responses:
         '200':
-          description: 'All cars maintained by the system'
+          description: The VINs of all cars maintained by the system.
           content:
             application/json:
               schema:
@@ -19,58 +19,92 @@ paths:
                 items:
                   $ref: '#/components/schemas/vin'
     post:
-      summary: Add a New Vehicle
-      operationId: addVehicle
+      summary: Add a New Car
+      operationId: addCar
       requestBody:
-        description: Vehicle object that should be added.
+        description: Static car object that should be added.
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/car'
+              $ref: '#/components/schemas/staticCar'
         required: true
       responses:
         "201":
-          description: Successful operation, returns VIN
+          description: The operation was successful. The response contains the VIN of the newly added car.
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/vin'
         "400":
-          description: Invalid vehicle values
-        "415":
-          $ref: '#/components/responses/unsupportedContentType'
+          description: The request body is invalid (i.e. violates the schema).
+        "409":
+          description: A car with the specified VIN already exists.
   /cars/{vin}:
     parameters:
       - $ref: '#/components/parameters/vinParam'
     get:
       summary: Get All Information About a Specific Car
       operationId: getCar
-      description: Return all information about a car specified by its VIN
+      description: Return all (static and dynamic) information about a car specified by its VIN.
       responses:
         '200':
-          description: 'Successful operation'
+          description: The operation was successful.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/car'
+                $ref: '#/components/schemas/dynamicCar'
         "400":
           $ref: '#/components/responses/vinInvalid'
         "404":
           $ref: '#/components/responses/carNotFound'
     delete:
-      summary: Delete a Car With All Components
+      summary: Remove a Car from the System
       operationId: deleteCar
       responses:
         "204":
-          $ref: '#/components/responses/deleted'
+          description: The resource was deleted successfully.
         "400":
           $ref: '#/components/responses/vinInvalid'
         "404":
           $ref: '#/components/responses/carNotFound'
 components:
   schemas:
-    car:
+    staticCar:
       type: object
+      required:
+        - vin
+        - brand
+        - model
+        - productionDate
+        - technicalSpecification
+      properties:
+        vin:
+          $ref: '#/components/schemas/vin'
+        brand:
+          type: string
+          example: "Audi"
+          description: Data that specifies the brand name of the Vehicle manufacturer
+        model:
+          type: string
+          example: "A3"
+          description: Data that specifies the particular type of a Vehicle
+        productionDate:
+          type: string
+          format: date
+          example: "2017-07-21"
+          description: Data that specifies the official date the vehicle was declared to have exited production by the manufacturer.
+        technicalSpecification:
+          $ref: '#/components/schemas/technicalSpecification'
+
+    dynamicCar:
+      type: object
+      required:
+        - vin
+        - brand
+        - model
+        - productionDate
+        - technicalSpecification
+        - dynamicData
       properties:
         vin:
           $ref: '#/components/schemas/vin'
@@ -91,9 +125,22 @@ components:
           $ref: '#/components/schemas/technicalSpecification'
         dynamicData:
           $ref: '#/components/schemas/dynamicData'
-      description: A specific type of vehicle
+
     technicalSpecification:
       type: object
+      required:
+        - color
+        - weight
+        - trunkVolume
+        - engine
+        - transmission
+        - tire
+        - numberOfSeats
+        - numberOfDoors
+        - fuel
+        - fuelCapacity
+        - consumption
+        - emissions
       properties:
         color:
           type: string
@@ -109,6 +156,9 @@ components:
           description: Data on the physical volume of the trunk in liters
         engine:
           type: object
+          required:
+            - type
+            - power
           properties:
             type:
               type: string
@@ -128,6 +178,9 @@ components:
           description: A physical unit responsible for managing the conversion rate of the engine (can be automated or manually operated)
         tire:
           type: object
+          required:
+            - manufacturer
+            - type
           properties:
             manufacturer:
               type: string
@@ -164,6 +217,10 @@ components:
           description: Data that specifies the amount of fuel that can be carried with the car
         consumption:
           type: object
+          required:
+            - city
+            - combined
+            - overland
           properties:
             city:
               type: number
@@ -180,6 +237,10 @@ components:
           description: Data that specifies the amount of fuel consumed during car operation in units per 100 kilometers
         emissions:
           type: object
+          required:
+            - city
+            - overland
+            - combined
           properties:
             city:
               type: number
@@ -193,10 +254,16 @@ components:
               type: number
               example: 137
               description: "Data that specifies the combined amount of emissions in: g CO2 / km. The combination is done by the manufacturer according to an industry-specific standard"
-
           description: Data that specifies the CO2 emitted by a car during operation in gram per kilometer
+
     dynamicData:
       type: object
+      required:
+        - fuelLevelPercentage
+        - position
+        - trunkLockState
+        - doorsLockState
+        - engineState
       properties:
         fuelLevelPercentage:
           type: integer
@@ -204,6 +271,9 @@ components:
           description: Data that specifies the relation of remaining fuelCapacity to the maximum fuelCapacity in percentage
         position:
           type: object
+          required:
+            - latitude
+            - longitude
           properties:
             latitude:
               type: number
@@ -224,26 +294,26 @@ components:
             - 'ON'
             - 'OFF'
       description: Data that changes during a car's operation
+
     lockState:
       type: string
       enum:
         - LOCKED
         - UNLOCKED
       description: Data that specifies whether an object is locked or unlocked
+
     vin:
       type: string
       pattern: '^[A-HJ-NPR-Z0-9]{13}[0-9]{4}$'
       example: WDD1690071J236589
       description: A Vehicle Identification Number (VIN) which uniquely identifies a car
+
   responses:
     vinInvalid:
-      description: The vin has an invalid format
+      description: The VIN has an invalid format.
     carNotFound:
-      description: The specified car was not found
-    deleted:
-      description: The resource was deleted successfully
-    unsupportedContentType:
-      description: Unsupported content type
+      description: A car with the specified VIN was not found.
+
   parameters:
     vinParam:
       in: path
