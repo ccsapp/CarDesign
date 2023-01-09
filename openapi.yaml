@@ -67,6 +67,23 @@ paths:
           $ref: '#/components/responses/vinInvalid'
         "404":
           $ref: '#/components/responses/carNotFound'
+  /cars/{vin}/trunkLock:
+    put:
+      summary: Open or Close Trunk
+      operationId: changeTrunkLockState
+      requestBody:
+        description: Requested LockState for the trunk.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/lockState'
+      responses:
+        '204':
+          description: The operation was successful.
+        '400':
+          $ref: '#/components/responses/vinInvalid'
+        '404':
+          $ref: '#/components/responses/carNotFound'
 components:
   schemas:
     staticCar:
