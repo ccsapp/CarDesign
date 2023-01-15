@@ -6,10 +6,10 @@ The domain model used to unify the heterogeneous data models is described in a d
 
 ## Design
 
-[Domain API Diagram](pages/domain_api_diagram_d-car.md)
+[Domain API Diagram](pages/domain_api_diagram_car.md)
 
 [Data Definition Table](pages/data_definition_table_d-car.md)
 
 [API Specification](openapi.yaml)
 
-[API Constraints](pages/domain_api_diagram_d-car.md#constraints)
+[API Constraints](pages/domain_api_diagram_car.md#attribute-restrictions)
