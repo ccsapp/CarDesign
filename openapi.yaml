@@ -1,8 +1,8 @@
 openapi: 3.0.0
 info:
-  title: D-Car
-  version: 1.0.0
-  description: Domain API v1.0 providing static and dynamic car data
+  title: Car
+  version: 2.1.0
+  description: Domain Microservice API 2.1.0 providing static and dynamic car data
 servers: [ ]
 paths:
   /cars:
