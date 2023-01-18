@@ -68,6 +68,8 @@ paths:
         "404":
           $ref: '#/components/responses/carNotFound'
   /cars/{vin}/trunkLock:
+    parameters:
+      - $ref: '#/components/parameters/vinParam'
     put:
       summary: Open or Close Trunk
       operationId: changeTrunkLockState
