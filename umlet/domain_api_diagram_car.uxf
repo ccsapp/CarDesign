@@ -94,7 +94,7 @@ technicalSpecification: TechnicalSpecification
 dynamicData: DynamicData
 --
 getCar(): Car
-setTrunkLockState(): LockState</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>564</x><y>804</y><w>156</w><h>144</h></coordinates><panel_attributes>&lt;&lt;enumeration&gt;&gt;
+setTrunkLockState()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>564</x><y>804</y><w>156</w><h>144</h></coordinates><panel_attributes>&lt;&lt;enumeration&gt;&gt;
 *Fuel*
 --
 DIESEL
