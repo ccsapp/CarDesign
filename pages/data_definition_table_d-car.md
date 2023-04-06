@@ -6,10 +6,10 @@ For each entity and value object of the [Domain API diagram](domain_api_diagram_
 
 | Attribute | Definition | 
 | ---------------- | ---------------- | 
-| VIN | specified in the [Ubiquitous Language](https://git.scc.kit.edu/cm-tm/cm-team/connectedcar/docdomainmodel/0.docconnectedcar/-/blob/master/pages/ubiquitous_language.md) of the domain ConntectedCar |  
-| brand | specified in the [Ubiquitous Language](https://git.scc.kit.edu/cm-tm/cm-team/connectedcar/docdomainmodel/0.docconnectedcar/-/blob/master/pages/ubiquitous_language.md) of the domain ConntectedCar |
-| model | specified in the [Ubiquitous Language](https://git.scc.kit.edu/cm-tm/cm-team/connectedcar/docdomainmodel/0.docconnectedcar/-/blob/master/pages/ubiquitous_language.md) of the domain ConntectedCar | 
-| productionDate | Data that specifies the official date the vehicle was declared to have exited pro- duction by the manufacturer. Format: YYYY-MM-DD |  
+| VIN | Data that uniquely identifies a car |  
+| brand | Data that describe the brand of a car |
+| model | Data that describe the model of a car | 
+| productionDate | Data that specifies the official date the vehicle was declared to have exited production by the manufacturer. Format: YYYY-MM-DD |  
 | technicalSpecification |  Encapsulates the core physical makeup of the car (like color and trunkVolume) and a car's performance | 
 | dynamicData | Data that changes during a car's operation |   
 
